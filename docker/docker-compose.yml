@@ -2,6 +2,7 @@ version: "3.9"
 services:
   postgres:
     image: postgres:16
+    container_name: famper-academic-postgres
     environment:
       POSTGRES_USER: academic
       POSTGRES_PASSWORD: academic
@@ -11,14 +12,17 @@ services:
 
   redis:
     image: redis:7
+    container_name: famper-academic-redis
     ports: ["6379:6379"]
 
   rabbitmq:
     image: rabbitmq:3-management
+    container_name: famper-academic-rabbitmq
     ports: ["5672:5672", "15672:15672"]
 
   minio:
     image: quay.io/minio/minio
+    container_name: famper-academic-minio
     command: server /data --console-address ":9001"
     environment:
       MINIO_ROOT_USER: minio
@@ -28,6 +32,7 @@ services:
 
   mailhog:
     image: mailhog/mailhog
+    container_name: famper-academic-mailhog
     ports: ["1025:1025", "8025:8025"]
 
 volumes:

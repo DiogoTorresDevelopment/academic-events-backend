@@ -1,13 +1,16 @@
 package br.com.famper.events.persistence;
 
-import br.com.famper.events.domain.Student;
 import java.util.UUID;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+import br.com.famper.events.domain.Student;
+@Repository
 public interface StudentRepository extends JpaRepository<Student, UUID> {
   @Query("""
          select s from Student s

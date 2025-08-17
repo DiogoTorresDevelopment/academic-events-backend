@@ -1,5 +1,7 @@
-br\com\famper\events\web\students\StudentController.class
 br\com\famper\events\web\students\UpsertStudentDTO.class
-br\com\famper\events\web\students\StudentDTO.class
+br\com\famper\events\web\auth\AuthController.class
 br\com\famper\events\web\ApiExceptionHandler.class
+br\com\famper\events\web\students\StudentController.class
+br\com\famper\events\web\students\StudentDTO.class
 br\com\famper\events\web\OpenApiConfig.class
+br\com\famper\events\web\auth\AuthController$LoginRequest.class
