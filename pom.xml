@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>br.com.famper.events</groupId>
+  <artifactId>academic-events-backend</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Academic Events Backend</name>
+
+  <properties>
+    <java.version>21</java.version>
+    <spring.boot.version>3.3.3</spring.boot.version>
+    <springdoc.version>2.6.0</springdoc.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- BOM do Spring Boot -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- (Opcional) BOM do AWS SDK v2 — se quiser manter adapters-files agora -->
+      <dependency>
+        <groupId>software.amazon.awssdk</groupId>
+        <artifactId>bom</artifactId>
+        <version>2.25.66</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- Por enquanto, mantenha só os módulos essenciais -->
+  <modules>
+    <module>modules/core-domain</module>
+    <module>modules/core-application</module>
+    <module>modules/adapters-persistence</module>
+    <module>modules/adapters-web</module>
+    <module>modules/security</module>
+    <module>modules/tenancy</module>
+    <module>modules/bootstrap</module>
+    <module>modules/adapters-messaging</module>
+    <module>modules/adapters-files</module>
+    <module>modules/adapters-pdf</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <release>${java.version}</release>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
